@@ -6,5 +6,8 @@ var worker = new Worker("./tarea.js");
 
 worker.addEventListener("message", function (e){
     //recibe de tarea el evento
-    console.log(e);
+    var otronombre = JSON.parse(ev.data);
+    // parse hace que pasas de string a objeto de javascript
+    console.log(e.data);
+    //solo le pedimos los datos del objeto con .data
 });

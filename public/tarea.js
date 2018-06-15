@@ -9,6 +9,7 @@ var miMensaje = {
 postMessage(JSON.stringify(miMensaje));
 
 var tempMessage = JSON.stringify(miMensaje);
+//stringify pasa el objeto a un string
 postMessage(tempMessage);
 
 postMessage('es una prueba');
