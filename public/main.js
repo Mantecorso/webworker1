@@ -21,13 +21,20 @@ function startWorker() {
     
     worker = new Worker("./tarea.js");
 
-    worker.addEventListener("message", function (e){
+    worker.onmessage = function (e) {
+        var tempoMessage = JSON.parse(e.data);
+        console.log(tempoMessage);
+    }    
+    //worker.addEventListener("message", function (e){
         //recibe de tarea el evento
-        var otronombre = JSON.parse(e.data);
+     //   var otronombre = JSON.parse(e.data);
         // parse hace que pasas de string a objeto de javascript
-        console.log(otronombre);
+       // console.log(otronombre);
         //solo le pedimos los datos del objeto con .data
-    });
+    worker.onerror = function (err) {
+        console.log(err);
+    }
+    
     } else {
         alert('No funciona webworker para este navegador');
     }
@@ -36,3 +43,9 @@ function startWorker() {
 function stopWorker(){
     worker.terminate();
 }
+
+// gestionar errores en webworker
+// filename 
+// linemo   
+// message  
+
