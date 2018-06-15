@@ -13,3 +13,4 @@ var tempMessage = JSON.stringify(miMensaje);
 //stringify pasa el objeto a un string
 postMessage(tempMessage);
 
+
