@@ -12,9 +12,11 @@ worker.addEventListener("message", function (e){
     //solo le pedimos los datos del objeto con .data
 });
 
+
+var worker;
 function startWorker(){
     var worker = new Worker("./tarea.js");
-    
+
     worker.addEventListener("message", function (e){
         //recibe de tarea el evento
         var otronombre = JSON.parse(e.data);
@@ -22,4 +24,8 @@ function startWorker(){
         console.log(otronombre);
         //solo le pedimos los datos del objeto con .data
     });
+}
+
+function stopWorker(){
+    worker.terminate();
 }
