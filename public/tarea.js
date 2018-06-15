@@ -1,0 +1,1 @@
+postMessage('es una prueba');
