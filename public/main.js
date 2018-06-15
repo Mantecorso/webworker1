@@ -24,6 +24,7 @@ function startWorker() {
     worker.onmessage = function (e) {
        // var tempoMessage = JSON.parse(e.data);
         console.log(e.data);
+        onMsg(e);
     }    
     //worker.addEventListener("message", function (e){
         //recibe de tarea el evento
@@ -44,7 +45,10 @@ function startWorker() {
 }
 
 function stopWorker(){
-    worker.terminate();
+    if(typeof worker !== 'undefined') {
+        worker.terminate();
+    }
+    
 }
 
 // gestionar errores en webworker
@@ -52,4 +56,8 @@ function stopWorker(){
 // linemo   
 // message  
 
+function onMsg (e) {
+    document.getElementById('result').textContent = e.data;
+}
+//
 
