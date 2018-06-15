@@ -5,4 +5,11 @@ body {
 
 #result {
     background-color: palegreen;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#error {
+    color: red;
+    font-size: 25px;
 }

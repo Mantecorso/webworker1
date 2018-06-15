@@ -34,6 +34,7 @@ function startWorker() {
         //solo le pedimos los datos del objeto con .data
     worker.onerror = function (err) {
         console.log(err);
+        onError(err);
     }
     worker.postMessage('Hola desde el main al tarea con amor');
     worker.postMessage('otro mensaje');
@@ -60,4 +61,16 @@ function onMsg (e) {
     document.getElementById('result').textContent = e.data;
 }
 //
+
+function onError (e) {
+    document.getElementById('error').textContent = [
+        'ERROR: Line ',
+        e.lineno,
+        'in',
+        e.filename,
+        ': ',
+        e.message
+    ].join('');
+    //juntar con un join todo el string 
+}
 
