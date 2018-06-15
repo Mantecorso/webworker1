@@ -35,6 +35,9 @@ function startWorker() {
         console.log(err);
     }
     worker.postMessage('Hola desde el main al tarea con amor');
+    worker.postMessage('otro mensaje');
+    worker.postMessage('mas mensajes');
+    worker.postMessage('no pares, dont stop');
     } else {
         alert('No funciona webworker para este navegador')
     }
