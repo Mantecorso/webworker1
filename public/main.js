@@ -22,8 +22,8 @@ function startWorker() {
     worker = new Worker("./tarea.js");
 
     worker.onmessage = function (e) {
-        var tempoMessage = JSON.parse(e.data);
-        console.log(tempoMessage);
+       // var tempoMessage = JSON.parse(e.data);
+        console.log(e.data);
     }    
     //worker.addEventListener("message", function (e){
         //recibe de tarea el evento
@@ -34,9 +34,9 @@ function startWorker() {
     worker.onerror = function (err) {
         console.log(err);
     }
-    
+    worker.postMessage('Hola desde el main al tarea con amor');
     } else {
-        alert('No funciona webworker para este navegador');
+        alert('No funciona webworker para este navegador')
     }
 }
 
@@ -48,4 +48,5 @@ function stopWorker(){
 // filename 
 // linemo   
 // message  
+
 
